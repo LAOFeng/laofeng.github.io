@@ -457,12 +457,12 @@ input[type="radio"]:not(:checked) + label:after {
 }
 @font-face {
   font-family: 'iconfont-LAO';  /* project id 1305238 */
-  src: url('//at.alicdn.com/t/font_1305238_9r6mx4ny1rj.eot');
-  src: url('//at.alicdn.com/t/font_1305238_9r6mx4ny1rj.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1305238_9r6mx4ny1rj.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1305238_9r6mx4ny1rj.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1305238_9r6mx4ny1rj.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1305238_9r6mx4ny1rj.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1305238_4h1tjhvn3cc.eot');
+  src: url('//at.alicdn.com/t/font_1305238_4h1tjhvn3cc.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1305238_4h1tjhvn3cc.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1305238_4h1tjhvn3cc.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1305238_4h1tjhvn3cc.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1305238_4h1tjhvn3cc.svg#iconfont') format('svg');
 }
 .iconfont-LAO {
   font-family: "iconfont-LAO" !important;
@@ -471,9 +471,11 @@ input[type="radio"]:not(:checked) + label:after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .icon-sun:before {
   content: "\e600";
 }
+
 .header-logo a {
   padding: 0;
 }
