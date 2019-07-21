@@ -168,7 +168,7 @@ body {
   font-weight: normal;
   line-height: 2em;
   background-color: #fff;
-  color: #161209;
+  color: #a9a9b3;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
 body:before {
