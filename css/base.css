@@ -18,7 +18,7 @@ body {
   font-weight: normal;
   line-height: 2em;
   background-color: $light-background-color;
-  color: $dark-font-color;
+  color: $light-font-color;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
 body:before {
