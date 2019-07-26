@@ -37,44 +37,54 @@ document.ready(
         const currentTheme = window.localStorage && window.localStorage.getItem('theme');
         const isDark = currentTheme === 'dark';
         if (isDark) {
-            document.getElementById("switch_default").checked = true;
+            //document.getElementById("switch_default").checked = true;
+            document.getElementById("themeicon").classList.replace("icon-sun","icon-moon");
             // mobile
-            document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            document.getElementById("themeiconm").classList.replace("icon-sun","icon-moon");
+            //document.getElementById("mobile-toggle-theme").innerText = "· Dark"
         } else {
-            document.getElementById("switch_default").checked = false;
+            //document.getElementById("switch_default").checked = false;
+            document.getElementById("themeicon").classList.replace("icon-moon","icon-sun");
             // mobile
-            document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            document.getElementById("themeiconm").classList.replace("icon-moon","icon-sun");
+            //document.getElementById("mobile-toggle-theme").innerText = "· Light"
         }
         _Blog.toggleTheme = function () {
             if (isDark) {
                 document.getElementsByTagName('body')[0].classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                // mobil
+                document.getElementById("themeicon").classList.replace("icon-sun","icon-moon");
+                //document.getElementById("themeicon").innerText = "· Dark"
             } else {
                 document.getElementsByTagName('body')[0].classList.remove('dark-theme');
                 // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+                document.getElementById("themeicon").classList.replace("icon-moon","icon-sun");
+                //document.getElementById("mobile-toggle-theme").innerText = "· Light"
             }
-            document.getElementsByClassName('toggleBtn')[0].addEventListener('click', () => {
+            document.getElementById('themeicon').addEventListener('click', () => {
                 if (document.getElementsByTagName('body')[0].classList.contains('dark-theme')) {
                     document.getElementsByTagName('body')[0].classList.remove('dark-theme');
+                    document.getElementById("themeicon").classList.replace("icon-moon","icon-sun");
                 } else {
                     document.getElementsByTagName('body')[0].classList.add('dark-theme');
+                    document.getElementById("themeicon").classList.replace("icon-sun","icon-moon");
                 }
                 window.localStorage &&
                 window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
             })
             // moblie
-            document.getElementById('mobile-toggle-theme').addEventListener('click', () => {
+            document.getElementById('themeiconm').addEventListener('click', () => {
                 if (document.getElementsByTagName('body')[0].classList.contains('dark-theme')) {
                     document.getElementsByTagName('body')[0].classList.remove('dark-theme');
                     // mobile
-                    document.getElementById("mobile-toggle-theme").innerText = "· Light"
+                    document.getElementById("themeiconm").classList.replace("icon-moon","icon-sun");
+                    //document.getElementById("mobile-toggle-theme").innerText = "· Light"
 
                 } else {
                     document.getElementsByTagName('body')[0].classList.add('dark-theme');
                     // mobile
-                    document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                    document.getElementById("themeiconm").classList.replace("icon-sun","icon-moon");
+                    //document.getElementById("mobile-toggle-theme").innerText = "· Dark"
                 }
                 window.localStorage &&
                 window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)

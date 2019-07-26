@@ -476,6 +476,9 @@ input[type="radio"]:not(:checked) + label:after {
   content: "\e600";
 }
 
+.icon-moon:before {
+  content: "\e62c";
+}
 .header-logo a {
   padding: 0;
 }
