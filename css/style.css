@@ -457,26 +457,29 @@ input[type="radio"]:not(:checked) + label:after {
 }
 @font-face {
   font-family: 'iconfont';  /* project id 1305238 */
-  src: url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.eot');
-  src: url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.eot');
+  src: url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.svg#iconfont') format('svg');
 }
 
 .icon-shop::before{
   content: "\e639";
 }
+.icon-telegram::before{
+  content: "\e794";
+}
 
 @font-face {
   font-family: 'iconfont-LAO';  /* project id 1305238 */
-  src: url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.eot');
-  src: url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1305238_qsxwty6ri6.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.eot');
+  src: url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1305238_kfbfssitqkb.svg#iconfont') format('svg');
 }
 .iconfont-LAO {
   font-family: "iconfont-LAO" !important;
