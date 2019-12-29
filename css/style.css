@@ -1086,7 +1086,7 @@ header label {
   background: #f8f5ec;
 }
 .dark-theme .post-content code {
-  color: #fffe28;
+  color: #0ff;
   background: #787575;
 }
 .post-content figure.highlight {
@@ -1372,12 +1372,20 @@ header label {
   }
 }
 .highlight {
-  background: #2d2d2d;
-  color: #ccc;
+  background: #f7f7f7;
+  color: #657b83;
+}
+.dark-theme .highlight {
+  color: #c5c8c6;
+  background: #1d1f21;
 }
 .highlight .code .comment,
 .highlight .code .quote {
-  color: #999;
+  color: #8e908c;
+}
+.dark-theme .highlight .code .comment,
+.dark-theme .highlight .code .quote {
+  color: #969896;
 }
 .highlight .code .variable,
 .highlight .code .template-variable,
@@ -1387,7 +1395,17 @@ header label {
 .highlight .code .selector-class,
 .highlight .code .regexp,
 .highlight .code .deletion {
-  color: #f2777a;
+  color: #c82829;
+}
+.dark-theme .highlight .code .variable,
+.dark-theme .highlight .code .template-variable,
+.dark-theme .highlight .code .tag,
+.dark-theme .highlight .code .name,
+.dark-theme .highlight .code .selector-id,
+.dark-theme .highlight .code .selector-class,
+.dark-theme .highlight .code .regexp,
+.dark-theme .highlight .code .deletion {
+  color: #c66;
 }
 .highlight .code .number,
 .highlight .code .built_in,
@@ -1397,24 +1415,51 @@ header label {
 .highlight .code .params,
 .highlight .code .meta,
 .highlight .code .link {
-  color: #f99157;
+  color: #f5871f;
+}
+.dark-theme .highlight .code .number,
+.dark-theme .highlight .code .built_in,
+.dark-theme .highlight .code .builtin-name,
+.dark-theme .highlight .code .literal,
+.dark-theme .highlight .code .type,
+.dark-theme .highlight .code .params,
+.dark-theme .highlight .code .meta,
+.dark-theme .highlight .code .link {
+  color: #de935f;
 }
 .highlight .code .attribute {
-  color: #fc6;
+  color: #eab700;
+}
+.dark-theme .highlight .code .attribute {
+  color: #f0c674;
 }
 .highlight .code .string,
 .highlight .code .symbol,
 .highlight .code .bullet,
 .highlight .code .addition {
-  color: #9c9;
+  color: #718c00;
+}
+.dark-theme .highlight .code .string,
+.dark-theme .highlight .code .symbol,
+.dark-theme .highlight .code .bullet,
+.dark-theme .highlight .code .addition {
+  color: #b5bd68;
 }
 .highlight .code .title,
 .highlight .code .section {
-  color: #69c;
+  color: #4271ae;
+}
+.dark-theme .highlight .code .title,
+.dark-theme .highlight .code .section {
+  color: #81a2be;
 }
 .highlight .code .keyword,
 .highlight .code .selector-tag {
-  color: #c9c;
+  color: #8959a8;
+}
+.dark-theme .highlight .code .keyword,
+.dark-theme .highlight .code .selector-tag {
+  color: #b294bb;
 }
 .highlight .code .emphasis {
   font-style: italic;
