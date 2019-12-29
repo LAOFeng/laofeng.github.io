@@ -1372,94 +1372,187 @@ header label {
   }
 }
 .highlight {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
   background: #f7f7f7;
-  color: #657b83;
+  color: #000;
 }
 .dark-theme .highlight {
-  color: #c5c8c6;
-  background: #1d1f21;
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #1e1e1e;
+  color: #dcdcdc;
 }
 .highlight .code .comment,
 .highlight .code .quote {
-  color: #8e908c;
+  color: #008000;
 }
 .dark-theme .highlight .code .comment,
 .dark-theme .highlight .code .quote {
-  color: #969896;
+  color: #57a64a;
 }
-.highlight .code .variable,
-.highlight .code .template-variable,
-.highlight .code .tag,
-.highlight .code .name,
-.highlight .code .selector-id,
-.highlight .code .selector-class,
-.highlight .code .regexp,
-.highlight .code .deletion {
-  color: #c82829;
+.highlight .code .variable {
+  color: #008000;
 }
-.dark-theme .highlight .code .variable,
-.dark-theme .highlight .code .template-variable,
-.dark-theme .highlight .code .tag,
-.dark-theme .highlight .code .name,
-.dark-theme .highlight .code .selector-id,
-.dark-theme .highlight .code .selector-class,
-.dark-theme .highlight .code .regexp,
-.dark-theme .highlight .code .deletion {
-  color: #c66;
-}
-.highlight .code .number,
-.highlight .code .built_in,
-.highlight .code .builtin-name,
-.highlight .code .literal,
-.highlight .code .type,
-.highlight .code .params,
-.highlight .code .meta,
-.highlight .code .link {
-  color: #f5871f;
-}
-.dark-theme .highlight .code .number,
-.dark-theme .highlight .code .built_in,
-.dark-theme .highlight .code .builtin-name,
-.dark-theme .highlight .code .literal,
-.dark-theme .highlight .code .type,
-.dark-theme .highlight .code .params,
-.dark-theme .highlight .code .meta,
-.dark-theme .highlight .code .link {
-  color: #de935f;
-}
-.highlight .code .attribute {
-  color: #eab700;
-}
-.dark-theme .highlight .code .attribute {
-  color: #f0c674;
-}
-.highlight .code .string,
-.highlight .code .symbol,
-.highlight .code .bullet,
-.highlight .code .addition {
-  color: #718c00;
-}
-.dark-theme .highlight .code .string,
-.dark-theme .highlight .code .symbol,
-.dark-theme .highlight .code .bullet,
-.dark-theme .highlight .code .addition {
-  color: #b5bd68;
-}
-.highlight .code .title,
-.highlight .code .section {
-  color: #4271ae;
-}
-.dark-theme .highlight .code .title,
-.dark-theme .highlight .code .section {
-  color: #81a2be;
+.dark-theme .highlight .code .variable {
+  color: #bd63c5;
 }
 .highlight .code .keyword,
-.highlight .code .selector-tag {
-  color: #8959a8;
+.highlight .code .name {
+  color: #00f;
 }
 .dark-theme .highlight .code .keyword,
+.dark-theme .highlight .code .name {
+  color: #569cd6;
+}
+.highlight .code .selector-tag {
+  color: #00f;
+}
 .dark-theme .highlight .code .selector-tag {
-  color: #b294bb;
+  color: #d7ba7d;
+}
+.highlight .code .built_in {
+  color: #00f;
+}
+.dark-theme .highlight .code .built_in {
+  color: #4ec9b0;
+}
+.highlight .code .tag {
+  color: #00f;
+}
+.dark-theme .highlight .code .tag {
+  color: #9b9b9b;
+}
+.highlight .code .string,
+.highlight .code .meta-string {
+  color: #a31515;
+}
+.dark-theme .highlight .code .string,
+.dark-theme .highlight .code .meta-string {
+  color: #d69d85;
+}
+.highlight .code .title,
+.highlight .code .subst,
+.highlight .code .function,
+.highlight .code .params,
+.highlight .code .formula {
+  color: #a31515;
+}
+.dark-theme .highlight .code .title,
+.dark-theme .highlight .code .subst,
+.dark-theme .highlight .code .function,
+.dark-theme .highlight .code .params,
+.dark-theme .highlight .code .formula {
+  color: #dcdcdc;
+}
+.highlight .code .section {
+  color: #a31515;
+}
+.dark-theme .highlight .code .section {
+  color: #ffd700;
+}
+.highlight .code .attribute {
+  color: #a31515;
+}
+.dark-theme .highlight .code .attribute {
+  color: #9cdcfe;
+}
+.highlight .code .literal {
+  color: #a31515;
+}
+.dark-theme .highlight .code .literal {
+  color: #569cd6;
+}
+.highlight .code .template-tag {
+  color: #a31515;
+}
+.dark-theme .highlight .code .template-tag {
+  color: #9a5334;
+}
+.highlight .code .template-variable {
+  color: #a31515;
+}
+.dark-theme .highlight .code .template-variable {
+  color: #bd63c5;
+}
+.highlight .code .type {
+  color: #a31515;
+}
+.dark-theme .highlight .code .type {
+  color: #4ec9b0;
+}
+.highlight .code .addition {
+  color: #a31515;
+}
+.dark-theme .highlight .code .addition {
+  background-color: #144212;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion {
+  color: #2b91af;
+}
+.dark-theme .highlight .code .deletion {
+  background-color: #600;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .selector-attr,
+.highlight .code .selector-pseudo {
+  color: #2b91af;
+}
+.dark-theme .highlight .code .selector-id,
+.dark-theme .highlight .code .selector-class,
+.dark-theme .highlight .code .selector-attr,
+.dark-theme .highlight .code .selector-pseudo {
+  color: #d7ba7d;
+}
+.highlight .code .meta,
+.highlight .code .meta-keyword,
+.highlight .code .tag {
+  color: #2b91af;
+}
+.dark-theme .highlight .code .meta,
+.dark-theme .highlight .code .meta-keyword,
+.dark-theme .highlight .code .tag {
+  color: #9b9b9b;
+}
+.highlight .code .doctag {
+  color: #808080;
+}
+.dark-theme .highlight .code .doctag {
+  color: #608b4e;
+}
+.highlight .code .attr,
+.highlight .code .builtin-name {
+  color: #f00;
+}
+.dark-theme .highlight .code .attr,
+.dark-theme .highlight .code .builtin-name {
+  color: #9cdcfe;
+}
+.highlight .code .symbol {
+  color: #00b0e8;
+}
+.dark-theme .highlight .code .symbol {
+  color: #569cd6;
+}
+.highlight .code .bullet {
+  color: #00b0e8;
+}
+.dark-theme .highlight .code .bullet {
+  color: #d7ba7d;
+}
+.highlight .code .link {
+  color: #00b0e8;
+}
+.dark-theme .highlight .code .link {
+  color: #569cd6;
+  text-decoration: underline;
 }
 .highlight .code .emphasis {
   font-style: italic;
