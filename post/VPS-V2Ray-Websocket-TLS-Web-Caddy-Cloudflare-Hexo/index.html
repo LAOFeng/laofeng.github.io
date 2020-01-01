@@ -7,7 +7,7 @@
 
 
 
-<title>[VPS]V2Ray + Websocket + TLS + Web(Caddy) + Cloudflare + BBR + Hexo | LAO</title>
+<title>[VPS]V2Ray + Websocket + TLS + Web(Caddy) + Hexo + Cloudflare + BBR  | LAO</title>
 
 
 
@@ -180,7 +180,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">[VPS]V2Ray + Websocket + TLS + Web(Caddy) + Cloudflare + BBR + Hexo</h1>
+            <h1 class="post-title">[VPS]V2Ray + Websocket + TLS + Web(Caddy) + Hexo + Cloudflare + BBR </h1>
             
                 <div class="post-meta">
                     
@@ -219,6 +219,10 @@
 <li>VPS（系统我用的是Debian 9）</li>
 <li>域名一个，我在<a href="https://www.namesilo.com" target="_blank" rel="noopener">Namesilo</a>买的，通过Cloudflare解析到VPS的ip从而隐藏并保护VPS的ip。</li>
 <li>Linux 基本知识 &amp; <a href="https://www.runoob.com/linux/linux-vim.html" target="_blank" rel="noopener">Vim 编辑器知识</a></li>
+<li>如果你没有安装Vim &amp; sudo &amp; curl，请先安装：<ul>
+<li><code>apt-get install vim</code> </li>
+</ul>
+</li>
 </ul>
 <h1 id="Cloudflare解析域名"><a href="#Cloudflare解析域名" class="headerlink" title="Cloudflare解析域名"></a>Cloudflare解析域名</h1><p>（以Namesilo为例待填坑）</p>
 <h1 id="V2Ray（Project-V）"><a href="#V2Ray（Project-V）" class="headerlink" title="V2Ray（Project V）"></a>V2Ray（Project V）</h1><p><a href="https://v2ray.com/" target="_blank" rel="noopener">V2Ray官网</a> （需要借助🛫️）</p>
@@ -231,9 +235,8 @@
 
 <p>脚本运行完成后，你需要：</p>
 <ol>
-<li><p>编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式；  </p>
+<li><p>编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式；   </p>
 <ul>
-<li>如果你没有安装Vim，请先安装：<br><code>apt-get install vim</code>  </li>
 <li>生成UUID🆔并记录：<code>/usr/bin/v2ray/v2ctl uuid</code></li>
 <li>编辑config.json: <code>vim /etc/v2ray/config.json</code> （vim下用<code>:set paste</code>进入粘贴模式）<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"port"</span>: <span class="number">10000</span>,</span><br><span class="line">      <span class="attr">"listen"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,</span><br><span class="line">      <span class="attr">"settings"</span>: &#123;</span><br><span class="line">        <span class="attr">"clients"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"id"</span>: <span class="string">"生成的🆔"</span>,</span><br><span class="line">            <span class="attr">"alterId"</span>: <span class="number">64</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"network"</span>: <span class="string">"ws"</span>,</span><br><span class="line">        <span class="attr">"wsSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"path"</span>: <span class="string">"/ray"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"outbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">      <span class="attr">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -253,8 +256,33 @@
 <ul>
 <li>导入模式（懒，搬运也懒，参考官网或者那篇白话文吧）</li>
 </ul>
-<h1 id="Caddy"><a href="#Caddy" class="headerlink" title="Caddy"></a>Caddy</h1><p>Caddy是一个能自动创建HTTPS功能的HTTP/2网站服务器，目前有2.0 Beta版本了，这里用的是1.0 Stable版本。</p>
-<p>（待填坑）</p>
+<h1 id="Caddy"><a href="#Caddy" class="headerlink" title="Caddy"></a>Caddy</h1><p>Caddy是一个能自动创建HTTPS功能的HTTP/2网站服务器，目前有2.0 Beta版本了，这里用的是<a href="https://caddyserver.com/v1/download" target="_blank" rel="noopener">Caddy 1.0 Stable版本</a>。</p>
+<p>执行下面代码安装Caddy（选择了部分常用plug-in，不喜欢可以到官网自行选择）： </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://getcaddy.com | bash -s personal hook.service,http.cache,http.cgi,http.expires,http.git</span><br></pre></td></tr></table></figure>
+
+<p><strong>🛠配置caddy.service</strong></p>
+<p>我选择使用官方脚本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service</span><br></pre></td></tr></table></figure>
+
+<p>官方脚本里运行 Caddy 的用户为：www-data:www-data，需要解决访问权限问题：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置文件Caddyfile</span></span><br><span class="line">sudo mkdir /etc/caddy <span class="comment">#建立caddy文件夹</span></span><br><span class="line">sudo touch /etc/caddy/Caddyfile <span class="comment">#新建Caddyfile文件</span></span><br><span class="line">sudo chown -R www-data:www-data /etc/caddy <span class="comment">#赋权限</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SSL 文件</span></span><br><span class="line">sudo mkdir /etc/ssl/caddy</span><br><span class="line">sudo chown -R www-data:www-data /etc/ssl/caddy</span><br><span class="line">sudo chmod 0770 /etc/ssl/caddy</span><br><span class="line"></span><br><span class="line"><span class="comment"># Caddy 日志</span></span><br><span class="line">sudo mkdir /var/<span class="built_in">log</span>/caddy/</span><br><span class="line">sudo chown -R www-data:www-data /var/<span class="built_in">log</span>/caddy/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站根目录</span></span><br><span class="line">sudo mkdir /var/www</span><br><span class="line">sudo chown www-data:www-data /var/www</span><br></pre></td></tr></table></figure>
+
+<p><strong>⚙️配置Caddyfile</strong></p>
+<ul>
+<li>使用 Vim 编辑器编辑 Caddyfile：<code>vim /etc/caddy/Caddyfile</code>。（插一句，此处代码一句考虑到下面Hexo博客的配置<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yoursite.top &#123;</span><br><span class="line">  redir https://www.yoursite.top</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">https://www.yoursite.top &#123;</span><br><span class="line">  root /var/www/yoursite.top</span><br><span class="line">  gzip</span><br><span class="line">  tls youremail@outlook.com <span class="comment">#youremail@outlook.com 为自己的email邮箱</span></span><br><span class="line">  proxy /ray localhost:10000 &#123;</span><br><span class="line">    websocket</span><br><span class="line">    header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">#V2Ray流量相关配置</span></span><br><span class="line">  git &#123;</span><br><span class="line">    repo https://github.com/githubusername/githubusername.github.io.git <span class="comment"># 仓库地址</span></span><br><span class="line">    path /var/www/yoursite.top <span class="comment"># 网站存放目录</span></span><br><span class="line">    hook /webhooks password <span class="comment"># password 为自定义密码</span></span><br><span class="line">    hook_type github</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">#Hexo 博客相关配置：通过Github Webhooks自动同步Github Pages  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>⌨️管理 Caddy</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload <span class="comment"># 重载配置</span></span><br><span class="line">sudo systemctl start caddy.service <span class="comment"># 启动</span></span><br><span class="line">sudo systemctl restart caddy.service <span class="comment"># 重启</span></span><br><span class="line">sudo systemctl status caddy.service <span class="comment"># 查看</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> caddy.service <span class="comment"># 开机启动</span></span><br></pre></td></tr></table></figure>
+
+<p>⚠️ 如果出现<code>caddy.service main process exited code=exited status=1/failure</code>的报错，可以通过下述方法解决：</p>
+<ul>
+<li>vim 打开caddy.service文件：<code>sudo vim /etc/systemd/system/caddy.service</code></li>
+<li>uncomment 下面三行代码：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#将下述三行前的“；”删掉</span></span><br><span class="line">;CapabilityBoundingSet=CAP_NET_BIND_SERVICE</span><br><span class="line">;AmbientCapabilities=CAP_NET_BIND_SERVICE</span><br><span class="line">;NoNewPrivileges=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="BBR"><a href="#BBR" class="headerlink" title="BBR"></a>BBR</h1><p>Debian 9默认编译了 TCP BBR 的4.9的内核可以直接通过几条参数命令开启BBR：</p>
 <ol>
 <li><p>修改系统变量</p>
@@ -266,12 +294,17 @@
 <li><p>执行下述命令查看内核是否已开启BBR，如果提示<code>net.ipv4.tcp_available_congestion_control = bbr cubic reno</code>则表明BBR生效。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行下述命令查看BBR是否启动,如果显示 <code>tcp_bbr +数字</code> 说明BBR已开启成功。</p>
+<li><p>执行下述命令查看BBR是否启动,如果显示 <code>tcp_bbr + 数字</code> 说明BBR已开启成功。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><p>（待填坑）</p>
+<p>参考文章：</p>
+<ul>
+<li><a href="https://www.wenboz.com/p/af93.html" target="_blank" rel="noopener">用 Caddy 替代 Nginx 迈入 HTTPS 时代</a></li>
+<li><a href="https://www.jianshu.com/p/bc898b6f502d" target="_blank" rel="noopener">Caddy + Hexo 实现自动化部署</a></li>
+</ul>
 
         </div>
 
