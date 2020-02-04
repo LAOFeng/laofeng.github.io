@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>[Git]GitHub + GitLab 共存配置 | LAO</title>
+
+
+
+    <link rel="icon" href="/image/LAO.jpg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">LAO&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/links">Links</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <a class="toggleBtn"><i id="themeicon" class="iconfont-LAO icon-sun"></i></a>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <i style=" vertical-align:baseline;" id="themeiconm" class="iconfont-LAO icon-sun"></i>
+                    <a href="/"> LAO&#39;s Blog</a><a id="mobile-toggle-theme"></a>
+                </div>
+                <div class="animated-icon" onclick="mobileBtn2()"><span></span><span></span><span></span></div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/links">Links</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+    var mobileBtn2 = function f() {
+        var toggleMenu2 = document.getElementsByClassName("animated-icon")[0];
+        var mobileMenu2 = document.getElementById("mobile-menu");
+        if(toggleMenu2.classList.contains("open")){
+            toggleMenu2.classList.remove("open")
+            mobileMenu2.classList.remove("active")
+        }else{
+            toggleMenu2.classList.add("open")
+            mobileMenu2.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[Git]GitHub + GitLab 共存配置</h1>
+            
+                <div class="post-meta">
+                    
+                    
+                    
+                        <i class="iconfont-LAO icon-calendar" style="font-size: 16px;"></i>
+                        <span class="post-time">
+                        <a href="#">February 3, 2020&nbsp;&nbsp;11:52:31</a>
+                        </span>
+                    
+                    
+                    <section class="post-tags" style="line-height: 0em">
+                        <div>
+                            <i class="iconfont-LAO icon-tags" style="font-size: 16px;"></i>
+                            <span class="tag">
+                                
+                                
+                                    <a href="/tags/Git/"># Git</a>
+                                
+                                    <a href="/tags/Github/"># Github</a>
+                                
+                                    <a href="/tags/Gitlab/"># Gitlab</a>
+                                
+                                    
+                            </span>
+                        </div>
+                    </section>
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>博客希望多电脑管理，因此打算把文件上传到云端。但Github私人仓库需要费用，Gitlab私人仓库免费，因此考虑配置Github和Gitlab共存的环境。</p>
+<h1 id="git-安装"><a href="#git-安装" class="headerlink" title="git 安装"></a><strong>git 安装</strong></h1><ul>
+<li><strong>Mac</strong><br>Mac自带Git，无需安装。</li>
+<li><strong>Windows</strong><br><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">官网下载</a></li>
+</ul>
+<h1 id="git-更新"><a href="#git-更新" class="headerlink" title="git 更新"></a><strong>git 更新</strong></h1><p>通过<code>git clone https://github.com/git/git</code>更新</p>
+<h1 id="取消git全局设定"><a href="#取消git全局设定" class="headerlink" title="取消git全局设定"></a><strong>取消git全局设定</strong></h1><p>如果之前在git config中全局设定过用户名和邮箱的话需要先取消git的全局设定，不清楚的可以通过<code>git config --global --list</code>查看，如有则显示：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">user.name = <span class="string">"name"</span></span><br><span class="line">user.email = <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
+
+<p>删除该设定：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> user.name <span class="string">"name"</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> user.email <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a><strong>配置过程</strong></h1><ol>
+<li><p><strong>每个账户生成SSH Key</strong><br> 进入保存SSH key的文件夹进行下述操作：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p> 根据账户邮箱生成SSH Key(以Mac为例):</p>
+<ul>
+<li><p>GitHub:<br>用GitHub注册账户生成SSH Key</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">     ssh-keygen -t rsa -C <span class="string">"GitHub注册账户email"</span>  </span><br><span class="line">     </span><br><span class="line">     <span class="comment"># 回车后显示：</span></span><br><span class="line">     Generating public/private rsa key pair.</span><br><span class="line">     Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (~/.ssh/id_rsa): id_rsa_github <span class="comment">#给SSH key取个名字</span></span><br><span class="line">     <span class="comment"># 回车</span></span><br><span class="line">     Enter passphrase (empty <span class="keyword">for</span> no passphrase): </span><br><span class="line">     <span class="comment"># 回车</span></span><br><span class="line">     Enter same passphrase again: </span><br><span class="line">     <span class="comment"># 回车</span></span><br><span class="line">     Your identification has been saved <span class="keyword">in</span> id_rsa_github.<span class="comment">#SSH私钥</span></span><br><span class="line">     Your public key has been saved <span class="keyword">in</span> id_rsa_github.pub.<span class="comment">#SSH公钥</span></span><br><span class="line">     ```  </span><br><span class="line"> - GitLab:</span><br><span class="line">用GitLab注册账户生成SSH Key</span><br><span class="line">     ``` bash</span><br><span class="line">     ssh-keygen -t rsa -C <span class="string">"GitLab注册账户email"</span></span><br><span class="line"></span><br><span class="line">     <span class="comment"># 回车后显示：</span></span><br><span class="line">     Generating public/private rsa key pair.</span><br><span class="line">     Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (~/.ssh/id_rsa): id_rsa_gitlab <span class="comment">#给SSH key取个名字</span></span><br><span class="line">     <span class="comment"># 回车</span></span><br><span class="line">     Enter passphrase (empty <span class="keyword">for</span> no passphrase): </span><br><span class="line">     <span class="comment"># 回车</span></span><br><span class="line">     Enter same passphrase again: </span><br><span class="line">     <span class="comment"># 回车</span></span><br><span class="line">     Your identification has been saved <span class="keyword">in</span> id_rsa_gitlab.<span class="comment">#SSH私钥</span></span><br><span class="line">     Your public key has been saved <span class="keyword">in</span> id_rsa_gitlab.pub.<span class="comment">#SSH公钥</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他（如Gitee）同理</p>
+</li>
+</ul>
+</li>
+<li><p><strong>在GitHub/GitLab 上添加SSH公钥</strong></p>
+<ul>
+<li>GitHub:<ol>
+<li>在保存SSH key的文件夹中获取GitHub SSH公钥内容<code>cat id_rsa_github.pub</code>并复制内容</li>
+<li>登录 <a href="https://github.com/settings/keys" target="_blank" rel="noopener">GitHub</a></li>
+<li>点击右上方的头像，点击 Settings</li>
+<li>选择 SSH and GPG key</li>
+<li>点击 New SSH key</li>
+<li>粘贴公钥到Key并为其命名（Title）</li>
+<li>点Add SSH Key</li>
+</ol>
+</li>
+<li>GitLab:<ol>
+<li>在保存SSH key的文件夹中获取GitHub SSH公钥内容<code>cat id_rsa_gitlab.pub</code>并复制内容</li>
+<li>登录 <a href="https://gitlab.com/profile/keys" target="_blank" rel="noopener">GitLab</a></li>
+<li>点击右上方的头像，点击 Settings</li>
+<li>选择 SSH key</li>
+<li>粘贴公钥到Key并为其命名（Title）</li>
+<li>点Add Key</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>在本地添加私钥</strong><br>默认只读取 id_rsa，在本地的 SSH Agent 中添加了SSH私钥，这样 SSH 识别新的私钥：   </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#将GitHub私钥添加到本地</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa_github</span><br><span class="line"><span class="comment">#将GitLab私钥添加到本地 </span></span><br><span class="line">ssh-add ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置SSH config 文件</strong><br>多个SSH Key需要配置Config 文件进行管理</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch ~/.ssh/config</span><br></pre></td></tr></table></figure>
+
+<p> 打开刚才创建好的 config 文件（可以用VSCode等编辑器）</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#GitHub</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">User LAOFeng //自定义的用户名，默认为git，可不配置</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line"><span class="comment">#GitLab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">HostName gitlab.com</span><br><span class="line">User LAOFeng //自定义的用户名，默认为git，可不配置</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>测试链接</strong></p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line"><span class="comment">#提示Hi LAOFeng! You've successfully authenticated, but GitHub does not provide shell access.即成功连接。</span></span><br><span class="line">ssh -T git@gitlab.com</span><br><span class="line"><span class="comment">#提示Welcome to GitLab, @LAOFeng!即成功连接。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>LAO</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Let's go party party <strong>ALLNIGHT<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <div>
+            <a href="javascript:window.history.back();">back</a>
+            <span>· </span>
+            <a href="/">home</a>
+        </div>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/post/VPS-V2Ray-Websocket-TLS-Web-Caddy-Cloudflare-Hexo/">[VPS]V2Ray + Websocket + TLS + Web(Caddy) + Hexo + Cloudflare + BBR </a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2019<script>new Date().getFullYear()>2019&&document.write("-"+new Date().getFullYear());</script> <a href="https://github.com/LAOFeng" target="_blank"> LAO </a>| Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
