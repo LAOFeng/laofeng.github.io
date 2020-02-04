@@ -213,19 +213,24 @@
         </header>
 
         <div class="post-content">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>博客希望多电脑管理，因此打算把文件上传到云端。但Github私人仓库需要费用，Gitlab私人仓库免费，因此考虑配置Github和Gitlab共存的环境。</p>
-<h1 id="git-安装"><a href="#git-安装" class="headerlink" title="git 安装"></a><strong>git 安装</strong></h1><ul>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
+<p>博客希望多电脑管理，因此打算把文件上传到云端。但Github私人仓库需要费用，Gitlab私人仓库免费，因此考虑配置Github和Gitlab共存的环境。</p>
+<h1 id="git-安装"><a href="#git-安装" class="headerlink" title="git 安装"></a><strong>git 安装</strong></h1><hr>
+<ul>
 <li><strong>Mac</strong><br>Mac自带Git，无需安装。</li>
 <li><strong>Windows</strong><br><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">官网下载</a></li>
 </ul>
-<h1 id="git-更新"><a href="#git-更新" class="headerlink" title="git 更新"></a><strong>git 更新</strong></h1><p>通过<code>git clone https://github.com/git/git</code>更新</p>
-<h1 id="取消git全局设定"><a href="#取消git全局设定" class="headerlink" title="取消git全局设定"></a><strong>取消git全局设定</strong></h1><p>如果之前在git config中全局设定过用户名和邮箱的话需要先取消git的全局设定，不清楚的可以通过<code>git config --global --list</code>查看，如有则显示：</p>
+<h1 id="git-更新"><a href="#git-更新" class="headerlink" title="git 更新"></a><strong>git 更新</strong></h1><hr>
+<p>通过<code>git clone https://github.com/git/git</code>更新</p>
+<h1 id="取消git全局设定"><a href="#取消git全局设定" class="headerlink" title="取消git全局设定"></a><strong>取消git全局设定</strong></h1><hr>
+<p>如果之前在git config中全局设定过用户名和邮箱的话需要先取消git的全局设定，不清楚的可以通过<code>git config --global --list</code>查看，如有则显示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">user.name = <span class="string">"name"</span></span><br><span class="line">user.email = <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
 
 <p>删除该设定：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> user.name <span class="string">"name"</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> user.email <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a><strong>配置过程</strong></h1><ol>
+<h1 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a><strong>配置过程</strong></h1><hr>
+<ol>
 <li><p><strong>每个账户生成SSH Key</strong><br> 进入保存SSH key的文件夹进行下述操作：</p>
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
 
@@ -274,6 +279,15 @@
 </li>
 <li><p><strong>测试链接</strong></p>
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line"><span class="comment">#提示Hi LAOFeng! You've successfully authenticated, but GitHub does not provide shell access.即成功连接。</span></span><br><span class="line">ssh -T git@gitlab.com</span><br><span class="line"><span class="comment">#提示Welcome to GitLab, @LAOFeng!即成功连接。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>对每个项目单独设置用户名 &amp; 邮箱</strong><br>取消了git的全局设定的用户和邮箱后，要为每一个项目根据需要进行单独设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config user.name <span class="string">"xxname"</span></span><br><span class="line">git config user.email <span class="string">"xxx@xxx.com"</span></span><br></pre></td></tr></table></figure>
+
+<p>和我一样Hexo博客Deploy 和 源文件分开备份在不同仓库的需要分别在<code>.deploy_git</code>和<code>.git</code>中的config设置用户名和邮箱：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">#打开config文件加入：</span></span><br><span class="line"><span class="section">[user]</span></span><br><span class="line">  name = LAOFeng</span><br><span class="line">  email = zefengliao@outlook.com</span><br></pre></td></tr></table></figure>
+
+
+
 
 </li>
 </ol>
